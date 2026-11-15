@@ -1,6 +1,7 @@
 # ==================================================================================================
 # A Unified MLP-Based ANN Model of MR systems 
 # devloped by Jongmin Choi, Jeju National University, Jeju-si, Republic of Korea
+# Training and Validation Code
 # ==================================================================================================
 
 import os
@@ -16,6 +17,7 @@ from tensorflow.keras.layers import Dense, Input
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.metrics import RootMeanSquaredError
 
+# Suppress warning messages
 warnings.filterwarnings('ignore', category=UserWarning)
 
 # Randomseed Case Study
@@ -36,7 +38,9 @@ tf.random.set_seed(SEED)
 # ------------------------------------------------------------------------------
 # 1. Load data and define columns
 # ------------------------------------------------------------------------------
-file_path = "Database_for_release.xlsx" # Database file located in the working directory
+# Database file located in the working directory
+print("Warning: Replace values in Database_for_release.xlsx with actival experimental data before use")
+file_path = "Database_for_release.xlsx" 
 df_raw = pd.read_excel(file_path, sheet_name=0)
 
 input_cols_full = [
